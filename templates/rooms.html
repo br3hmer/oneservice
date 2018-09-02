@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Colorlib">
+    <meta name="description" content="#">
+    <meta name="keywords" content="#">
+    <!-- Page Title -->
+    <title>MatchFinder</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='listing/css/bootstrap.min.css') }}">
+    <!-- <link rel="stylesheet" href="listing/css/bootstrap.min.css"> -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+    <!-- Simple line Icon -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='listing/css/simple-line-icons.css') }}">
+    <!-- Themify Icon -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='listing/css/themify-icons.css') }}">
+    <!-- Hover Effects -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='listing/css/set1.css') }}">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='listing/css/style.css') }}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='listing/css/popup.css') }}">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+          $( "#datepicker" ).datepicker();
+        } );
+    </script>
+    <script src="{{ url_for('static', filename='listing/js/popup.js') }}"></script>
+</head>
+
+<body>
+    <div class="popup-container" style="display: none">
+        <div class="popup">
+            <div class="brand">MatchFinder</div>
+            <div class="content">
+                <div class="info"><span class="label">Date:</span> <span>Sep 02, 2pm</span></div>
+                <div class="info"><span class="label">Venue:</span> <span>Bedok South Secondary School</span></div>
+                <div class="info"><span class="label">Sport:</span> <span>Basketball</span></div>
+                <div class="info"><span class="label">Gender:</span> <span>Mixed</span></div>
+                <div class="participants">
+                    <ul>
+
+                        <li><img src="{{ url_for('static', filename='listing/images/person-icon.png') }}" /></li>
+                        <li><img src="{{ url_for('static', filename='listing/images/person-icon.png') }}" /></li>
+                        <li><img src="{{ url_for('static', filename='listing/images/person-icon.png') }}" /></li>
+                        <li><img src="{{ url_for('static', filename='listing/images/person-icon.png') }}" /></li>
+                        <li><img src="{{ url_for('static', filename='listing/images/person-icon.png') }}" /></li>
+                        <li><img src="{{ url_for('static', filename='listing/images/person-icon.png') }}" /></li>
+                        <li><img src="{{ url_for('static', filename='listing/images/person-icon.png') }}" /></li>
+                        <li><img src="{{ url_for('static', filename='listing/images/person-icon.png') }}" /></li>
+                        <li><img src="{{ url_for('static', filename='listing/images/person-icon.png') }}" /></li>
+                        <li><img id="icon_10" class="icon_hide" src="{{ url_for('static', filename='listing/images/person-icon.png') }}" /></li>
+                    </ul>
+                </div>
+                <div class="footer">
+                    <button class="action join"><span class="icon"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--============================= HEADER =============================-->
+    <div class="nav-menu">
+        <div class="bg transition">
+                <div class="container-fluid fixed is-sticky">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <nav class="navbar navbar-expand-lg navbar-light">
+                                <a class="navbar-brand" href="/" style="color:white"><b><i class="fa fa-map-marker w3-margin-right" style="color:red"></i> MatchFinder</b></a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="icon-menu"></span>
+                                </button>
+                                <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                                    <ul class="navbar-nav">
+                                        <li>
+                                            <a href="#" class="btn btn-outline-light top-btn" style="margin-right: 10px"> My Matches</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="btn btn-outline-light top-btn" href="table">Leaderboard</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <!-- SLIDER -->
+    <section class="slider align-items-center">
+        <!-- <img src="images/slider.jpg" class="img-fluid" alt="#"> -->
+        <div class="btn-group" role="group" aria-label="Basic example" style="height: 200px; padding-top: 100px; padding-left: 100px;">
+            <!-- <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown"> -->
+                <ul class="navbar-nav" style="flex-direction: row;">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link color-white" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Location
+                        <span class="icon-arrow-down"></span>
+                      </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Ang Mo Kio</a>
+                            <a class="dropdown-item" href="#">Bedok</a>
+                            <a class="dropdown-item" href="#">Bishan</a>
+                            <a class="dropdown-item" href="#">Boon Lay</a>
+                            <a class="dropdown-item" href="#">Bukit Batok</a>
+                            <a class="dropdown-item" href="#">Bukit Merah</a>
+                            <a class="dropdown-item" href="#">Bukit Panjang</a>
+                            <a class="dropdown-item" href="#">Bukit Timah</a>
+                            <a class="dropdown-item" href="#">Central Area</a>
+                            <a class="dropdown-item" href="#">Choa Chu Kang</a>
+                            <a class="dropdown-item" href="#">Clementi</a>
+                            <a class="dropdown-item" href="#">Geylang</a>
+                            <a class="dropdown-item" href="#">Hougang</a>
+                            <a class="dropdown-item" href="#">Jurong West</a>
+                            <a class="dropdown-item" href="#">Kallang/Whampoa</a>
+                            <a class="dropdown-item" href="#">Marine Parade</a>
+                            <a class="dropdown-item" href="#">Pasir Ris</a>
+                            <a class="dropdown-item" href="#">Punggol</a>
+                            <a class="dropdown-item" href="#">Queenstown</a>
+                            <a class="dropdown-item" href="#">Sembawang</a>
+                            <a class="dropdown-item" href="#">Sengkang</a>
+                            <a class="dropdown-item" href="#">Serangoon</a>
+                            <a class="dropdown-item" href="#">Tampines</a>
+                            <a class="dropdown-item" href="#">Toa Payoh</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link color-white" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sport
+                        <span class="icon-arrow-down"></span>
+                      </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Badminton</a>
+                            <a class="dropdown-item" href="#">Basketball</a>
+                            <a class="dropdown-item" href="#">Football</a>
+                            <a class="dropdown-item" href="#">Table Tennis</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link color-white" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gender
+                        <span class="icon-arrow-down"></span>
+                      </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Male</a>
+                            <a class="dropdown-item" href="#">Female</a>
+                            <a class="dropdown-item" href="#">Mixed</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link color-white" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Date
+                            <span>  
+                                <input type="text" id="datepicker">
+                            </span>
+                        </a>
+                        <!-- <span class="nav-link color-white" >Date: <input type="text" id="datepicker"></span> -->
+                    </li>
+                </ul>
+            <!-- </div> -->
+        </div>
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-12">
+                    <div class="slider-title_box">
+                        <div class="row">
+                            <div class="col-md-8 pull-left room-left-details">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>Venue: Bedok South Secondary School</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-4 pull-right">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>9/10</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-8 pull-left room-left-details">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>Date: Sept 02, 2pm</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-4 pull-right">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>Players</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-8 pull-left room-left-details">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>Gender: Mixed</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-4 pull-right">
+                                <button type="submit" class="btn-form btn-join popup-link">
+                                    Join
+                                </button>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-12">
+                    <div class="slider-title_box">
+                        <div class="row">
+                            <div class="col-md-8 pull-left room-left-details">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>Venue: Our Tampines Hub</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-4 pull-right">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>6/10</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-8 pull-left room-left-details">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>Date: Sept 02, 3pm</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-4 pull-right">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>Players</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-8 pull-left room-left-details">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>Gender: M</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-4 pull-right">
+                                <button type="submit" class="btn-form btn-join popup-link" ">
+                                    Join
+                                </button>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-12">
+                    <div class="slider-title_box">
+                        <div class="row">
+                            <div class="col-md-8 pull-left room-left-details">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>Venue: Bedok View Secondary School</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-4 pull-right">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>7/10</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-8 pull-left room-left-details">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>Date: Sept 02, 4pm</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-4 pull-right">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>Players</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-8 pull-left room-left-details">
+                                <div class="slider-content_wrap" style='align: left'>
+                                    <h3>Gender: F</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-4 pull-right">
+                                <button type="submit" class="btn-form btn-join popup-link" ">
+                                    Join
+                                </button>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--// SLIDER -->
+    <!--//END HEADER -->
+    <!--============================= FOOTER =============================-->
+    <footer class="main-block dark-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p>Copyright &copy; 2018 Listing. All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <ul>
+                            <li><a href="#"><span class="ti-facebook"></span></a></li>
+                            <li><a href="#"><span class="ti-twitter-alt"></span></a></li>
+                            <li><a href="#"><span class="ti-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--//END FOOTER -->
+
+
+
+
+    <!-- jQuery, Bootstrap JS. -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="{{ url_for('static', filename='listing/js/jquery-3.2.1.min.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='listing/js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='listing/js/bootstrap.min.js') }}"></script>
+
+    <script>
+        $(window).scroll(function() {
+            // 100 = The point you would like to fade the nav in.
+
+            // if ($(window).scrollTop() > 100) {
+
+            //     $('.fixed').addClass('is-sticky');
+
+            // } else {
+
+            //     $('.fixed').removeClass('is-sticky');
+
+            // };
+        });
+    </script>
+</body>
+
+</html>
