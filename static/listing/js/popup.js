@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
 	function join() {
 		$('.popup .footer .join').off().removeClass('join').addClass('joined').on('click', leave);
 		$('#icon_10').off().removeClass('icon_hide').on('click', leave);
-		window.setTimeout( show_payment_popup, 5000 );
+		window.setTimeout( show_payment_popup, 3000 );
 	}
 
 	function leave() {
@@ -16,7 +16,6 @@ window.addEventListener('load', () => {
 
 	function close(event) {
 		if(event) {
-			console.log(event.target);
 			if(event.target !== $('.popup-container').get(0)) return;
 		}
 		$('.popup-container').hide();

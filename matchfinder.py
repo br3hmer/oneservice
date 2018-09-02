@@ -42,7 +42,7 @@ def payment():
 @app.route("/thanks/<string:stripeToken>/<string:tokenType>/<string:email>/")
 def thanks(stripeToken, tokenType, email):
     return render_template(
-        'rooms.html')
+        'thanks.html')
 
 @app.route("/table")
 def table():
